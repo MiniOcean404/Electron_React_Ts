@@ -12,6 +12,7 @@ if (dependencies) {
     process.exit(0);
   }
   try {
+    // 查找安装依赖项的原因。如果它是因为 devDependency 而安装的，那没关系。由于依赖关系而在安装时发出警告
     // Find the reason for why the dependency is installed. If it is installed
     // because of a devDependency then that is okay. Warn when it is installed
     // because of a dependency
@@ -36,12 +37,12 @@ ${chalk.whiteBright.bgGreen.bold('npm uninstall your-package')}
  ${chalk.bold(
    'Then, instead of installing the package to the root "./package.json":'
  )}
-${chalk.whiteBright.bgRed.bold('npm install your-package')}
+${chalk.whiteBright.bgRed.bold('npm 安装 your-package')}
  ${chalk.bold('Install the package to "./release/app/package.json"')}
 ${chalk.whiteBright.bgGreen.bold(
   'cd ./release/app && npm install your-package'
 )}
- Read more about native dependencies at:
+ 在以下位置阅读有关本机依赖项的更多信息:
 ${chalk.bold(
   'https://electron-react-boilerplate.js.org/docs/adding-dependencies/#module-structure'
 )}
@@ -49,6 +50,6 @@ ${chalk.bold(
       process.exit(1);
     }
   } catch (e) {
-    console.log('Native dependencies could not be checked');
+    console.log('无法检查本机依赖项');
   }
 }

@@ -1,6 +1,7 @@
 const { notarize } = require('electron-notarize');
 const { build } = require('../../package.json');
 
+// Mac OS 证书验证
 exports.default = async function notarizeMacos(context) {
   const { electronPlatformName, appOutDir } = context;
   if (electronPlatformName !== 'darwin') {
@@ -8,14 +9,12 @@ exports.default = async function notarizeMacos(context) {
   }
 
   if (process.env.CI !== 'true') {
-    console.warn('Skipping notarizing step. Packaging is not running in CI');
+    console.warn('跳过公证步骤。打包未在 CI 中运行');
     return;
   }
 
   if (!('APPLE_ID' in process.env && 'APPLE_ID_PASS' in process.env)) {
-    console.warn(
-      'Skipping notarizing step. APPLE_ID and APPLE_ID_PASS env variables must be set'
-    );
+    console.warn('跳过公证步骤。必须设置 APPLE_ID 和 APPLE_ID_PASS 环境变量');
     return;
   }
 

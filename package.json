@@ -38,7 +38,7 @@
     "start:main": "cross-env NODE_ENV=development electronmon -r ts-node/register/transpile-only .",
     "start:preload": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.preload.dev.ts",
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
-    "package": "ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build --publish never",
+    "package": "ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build -c electron-builder.yml --publish never",
     "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
     "build:main": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.main.prod.ts",
     "build:renderer": "cross-env NODE_ENV=production TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.renderer.prod.ts",
@@ -48,6 +48,7 @@
     "lint": "cross-env NODE_ENV=development eslint . --ext .js,.jsx,.ts,.tsx",
     "commit": "cz",
     "clean": "rimraf node_modules &&  yarn cache clean",
+    "clean-node_modules": "rimraf node_modules",
     "prepare": "husky install",
     "test": "jest"
   },
@@ -201,135 +202,6 @@
     "node": "16.14.1",
     "yarn": "1.22.18"
   },
-  "build": {
-    "productName": "图片压缩",
-    "appId": "com.image-compress.app",
-    "asar": true,
-    "asarUnpack": "**\\*.{node,dll}",
-    "compression": "store",
-    "copyright": "Copyright © 2021 miniOcean404",
-    "extraMetadata": {
-      "env": "production"
-    },
-    "directories": {
-      "app": "release/app",
-      "buildResources": "assets",
-      "output": "release/build"
-    },
-    "files": [
-      "dist",
-      "node_modules",
-      "package.json"
-    ],
-    "extraResources": [
-      {
-        "from": "./assets/**",
-        "to": "./extraResources/**"
-      }
-    ],
-    "extraFiles": [
-      {
-        "from": "./assets/**",
-        "to": "./extraResources/**"
-      }
-    ],
-    "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32",
-            "arm64"
-          ]
-        }
-      ]
-    },
-    "nsis": {
-      "oneClick": false,
-      "language": "2052",
-      "deleteAppDataOnUninstall": true,
-      "perMachine": true,
-      "allowToChangeInstallationDirectory": true,
-      "allowElevation": true,
-      "installerIcon": "./assets/icons/icon.ico",
-      "uninstallerIcon": "./assets/icons/icon.ico",
-      "installerHeaderIcon": "./assets/icons/icon.ico",
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "shortcutName": "抢购"
-    },
-    "afterSign": ".erb/scripts/notarize.js",
-    "mac": {
-      "target": [
-        {
-          "target": "default",
-          "arch": [
-            "arm64",
-            "x64"
-          ]
-        },
-        "dmg",
-        "zip",
-        "pkg",
-        "mas"
-      ],
-      "type": "distribution",
-      "hardenedRuntime": true,
-      "entitlements": "assets/entitlements.mac.plist",
-      "entitlementsInherit": "assets/entitlements.mac.plist",
-      "gatekeeperAssess": false,
-      "icon": "assets/icons/icon.icns",
-      "category": "public.app-category.utilities",
-      "provisioningProfile": "electron-builder/comalibabaslobs.provisionprofile"
-    },
-    "dmg": {
-      "icon": "assets/icons/icon.icns",
-      "background": "assets/icons/1024x1024.png",
-      "iconSize": 100,
-      "sign": false,
-      "artifactName": "image-compress.dmg",
-      "contents": [
-        {
-          "x": 130,
-          "y": 220,
-          "type": "file"
-        },
-        {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ],
-      "window": {
-        "width": 540,
-        "height": 380
-      }
-    },
-    "pkg": {
-      "isRelocatable": false,
-      "overwriteAction": "upgrade"
-    },
-    "mas": {
-      "icon": "assets/icons/icon.icns",
-      "hardenedRuntime": true,
-      "entitlements": "electron-builder/entitlements.mas.plist",
-      "entitlementsInherit": "electron-builder/entitlements.mas.plist"
-    },
-    "linux": {
-      "target": [
-        "AppImage"
-      ],
-      "category": "Development"
-    },
-    "publish": {
-      "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate",
-      "url": ""
-    }
-  },
   "collective": {
     "url": "https://opencollective.com/electron-react-boilerplate-594"
   },
@@ -340,7 +212,7 @@
   "electronmon": {
     "patterns": [
       "!**/**",
-      "src/main/*"
+      "src/main/**/*"
     ],
     "logLevel": "quiet"
   },

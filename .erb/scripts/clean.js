@@ -2,6 +2,7 @@ import rimraf from 'rimraf';
 import process from 'process';
 import webpackPaths from '../configs/webpack.paths';
 
+// rimraf 清理脚本 dist release dll
 const args = process.argv.slice(2);
 const commandMap = {
   dist: webpackPaths.distPath,
