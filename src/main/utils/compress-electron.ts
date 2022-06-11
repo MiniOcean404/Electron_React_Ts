@@ -5,7 +5,9 @@ import fs from 'fs';
 import path from 'path';
 
 const imageCompress = (imagePath: string, quality: number) => {
+  // eslint-disable-next-line no-param-reassign
   if (quality === undefined) quality = 50;
+  // eslint-disable-next-line no-param-reassign
   quality = quality || 50;
   const image = nativeImage.createFromPath(imagePath);
   const res = image.resize({

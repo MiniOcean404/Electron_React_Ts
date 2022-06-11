@@ -1,5 +1,5 @@
 // 通过 Electron app getPath 可以获得应用存储路径
-import fs from "fs";
+import fs from 'fs';
 
 // 创建目录，返回创建目录的结果
 // eslint-disable-next-line

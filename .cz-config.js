@@ -8,10 +8,16 @@ module.exports = {
     { value: 'fix', name: '🐛修复fix:       修复一个Bug' },
     { value: 'docs', name: '📝文档docs:      变更的只有文档' },
     { value: 'style', name: '💄格式style:     空格, 分号等格式修复' },
-    { value: 'refactor', name: '♻️重构refactor:   代码重构，注意和特性、修复区分开' },
+    {
+      value: 'refactor',
+      name: '♻️重构refactor:   代码重构，注意和特性、修复区分开',
+    },
     { value: 'perf', name: '⚡️性能perf:      提升性能' },
     { value: 'test', name: '✅测试test:      添加一个测试' },
-    { value: 'chore', name: '🔧其他chore:     比如改变构建流程、或者增加依赖库、工具等' },
+    {
+      value: 'chore',
+      name: '🔧其他chore:     比如改变构建流程、或者增加依赖库、工具等',
+    },
     { value: 'revert', name: '⏪回滚revert:    代码回退回滚到上一个版本' },
   ],
   scopes: [
@@ -32,7 +38,12 @@ module.exports = {
 
   // 针对每一个 type 去定义对应的 scopes，例如 fix
   scopeOverrides: {
-    fix: [{ name: 'merge' }, { name: 'style' }, { name: 'e2eTest' }, { name: 'unitTest' }],
+    fix: [
+      { name: 'merge' },
+      { name: 'style' },
+      { name: 'e2eTest' },
+      { name: 'unitTest' },
+    ],
   },
 
   // 交互提示信息
@@ -68,4 +79,4 @@ module.exports = {
   // ticketNumberRegExp: '\\d{1,5}',
 
   // askForBreakingChangeFirst : true,
-}
+};
