@@ -49,7 +49,7 @@
     "commit": "cz",
     "clean": "rimraf node_modules &&  yarn cache clean",
     "clean-node_modules": "rimraf node_modules",
-    "prepare": "husky install",
+    "husky-prepare": "husky install",
     "test": "jest"
   },
   "lint-staged": {

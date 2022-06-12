@@ -33,7 +33,7 @@ if (
 ) {
   console.log(
     chalk.black.bgYellow.bold(
-      'The DLL files are missing. Sit back while we build them for you with "npm run build-dll"'
+      'DLL 文件丢失. 我们正在使用"npm run build-dll"为您构建它们，请稍等'
     )
   );
   execSync('npm run postinstall');
@@ -163,7 +163,7 @@ const configuration: webpack.Configuration = {
       verbose: true,
     },
     setupMiddlewares(middlewares) {
-      console.log('Starting preload.js builder...');
+      console.log('开始 preload.js 构建...');
       const preloadProcess = spawn('npm', ['run', 'start:preload'], {
         shell: true,
         stdio: 'inherit',
@@ -171,7 +171,7 @@ const configuration: webpack.Configuration = {
         .on('close', (code: number) => process.exit(code!))
         .on('error', (spawnError) => console.error(spawnError));
 
-      console.log('Starting Main Process...');
+      console.log('开始 主进程...');
       spawn('npm', ['run', 'start:main'], {
         shell: true,
         stdio: 'inherit',

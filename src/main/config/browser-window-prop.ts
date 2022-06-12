@@ -23,6 +23,7 @@ const webPreferences: WebPreferences = {
   // 预加载脚本所运行的上下文环境只能访问其自身专用的文档和全局窗口，其自身一系列内置的JavaScript (Array, Object, JSON, 等等) 也是如此，这些对于已加载的内容都是不可见的。
   // Electron API 将只在预加载脚本中可用，在已加载页面中不可用。 这个选项应被用于加载可能不被信任的远程内容时来确保加载的内容无法篡改预加载脚本和任何正在使用的Electron api。
   // 该选项使用的是与Chrome内容脚本相同的技术。 你可以在开发者工具Console选项卡内顶部组合框中选择 'Electron Isolated Context'条目来访问这个上下文。
+  // 隔离上下文 true 加载 preload.js false
   contextIsolation: true,
   webSecurity: false, // 取消跨域限制,如果此选项不是由开发者设置的，还会把 allowRunningInsecureContent设置为 true.
   allowRunningInsecureContent: true, // 允许一个 https 页面运行来自http url的JavaScript, CSS 或 plugins。

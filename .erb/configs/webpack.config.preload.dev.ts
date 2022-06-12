@@ -53,8 +53,8 @@ const configuration: webpack.Configuration = {
   ],
 
   /**
-   * Disables webpack processing of __dirname and __filename.
-   * If you run the bundle in node.js it falls back to these values of node.js.
+   * 禁用 __dirname 和 __filename 的 webpack 处理
+   * 如果您在 node.js 中运行包，它会回退到 node.js 原本的这些值
    * https://github.com/webpack/webpack/issues/2010
    */
   node: {
