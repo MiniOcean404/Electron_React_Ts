@@ -35,5 +35,6 @@ npm-debug.log.*
 
 script/
 ./*.js
+*.md
 
 
