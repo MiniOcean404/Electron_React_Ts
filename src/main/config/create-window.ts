@@ -1,7 +1,7 @@
 import createMenu from '@/main/config/menu';
 import initTray from '@/main/config/tray';
 import { BrowserWindow } from 'electron';
-import { resolveHtmlPath } from '@/main/util';
+import { resolveHtmlPath } from '@/main/utils/path';
 import installExtensions from '@/main/config/dev-tools';
 import initBrowserWindowEvent from '@/main/life-cycle/browser-window';
 import { isDebug } from '@/constant/env';
