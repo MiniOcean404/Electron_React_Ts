@@ -3,7 +3,7 @@ import { isOpenOrCloseDevtools } from '@/main/utils/devtool';
 import { app, BrowserWindow, Menu, nativeImage, Tray } from 'electron';
 
 export default (win: BrowserWindow) => {
-  const icon = nativeImage.createFromPath(iconPath());
+  const icon = nativeImage.createFromPath(iconPath('icon.png'));
   const tray = new Tray(icon);
 
   // 鼠标移到托盘中应用程序的图标上时，显示的文本

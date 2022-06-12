@@ -5,6 +5,7 @@ import {
   MenuItemConstructorOptions,
   shell,
 } from 'electron';
+import { isDebug } from '@/constant/env';
 
 let win: BrowserWindow;
 
@@ -155,14 +156,14 @@ function buildDarwinTemplate(): MenuItemConstructorOptions[] {
 function buildDefaultTemplate() {
   const templateDefault = [
     {
-      label: '&File',
+      label: '&文件',
       submenu: [
         {
-          label: '&Open',
+          label: '&打开窗口',
           accelerator: 'Ctrl+O',
         },
         {
-          label: '&Close',
+          label: '&关闭窗口',
           accelerator: 'Ctrl+W',
           click: () => {
             win.close();
@@ -171,54 +172,54 @@ function buildDefaultTemplate() {
       ],
     },
     {
-      label: '&View',
-      submenu:
-        process.env.NODE_ENV === 'development' ||
-        process.env.DEBUG_PROD === 'true'
-          ? [
-              {
-                label: '&Reload',
-                accelerator: 'Ctrl+R',
-                click: () => {
-                  win.webContents.reload();
-                },
+      label: '&开发者工具',
+      submenu: isDebug
+        ? [
+            {
+              label: '&刷新',
+              accelerator: 'Ctrl+R',
+              click: () => {
+                win.webContents.reload();
               },
-              {
-                label: 'Toggle &Full Screen',
-                accelerator: 'F11',
-                click: () => {
-                  win.setFullScreen(!win.isFullScreen());
-                },
+            },
+            {
+              label: '切换全屏',
+              accelerator: 'F11',
+              click: () => {
+                win.setFullScreen(!win.isFullScreen());
               },
-              {
-                label: 'Toggle &Developer Tools',
-                accelerator: 'Alt+Ctrl+I',
-                click: () => {
-                  win.webContents.toggleDevTools();
-                },
+            },
+            {
+              label: '切换开发者工具',
+              // 添加快捷键
+              accelerator: 'CmdOrCtrl + shift + i',
+              click: () => {
+                const { webContents } = win;
+                webContents.toggleDevTools();
               },
-            ]
-          : [
-              {
-                label: 'Toggle &Full Screen',
-                accelerator: 'F11',
-                click: () => {
-                  win.setFullScreen(!win.isFullScreen());
-                },
+            },
+          ]
+        : [
+            {
+              label: '切换全屏',
+              accelerator: 'F11',
+              click: () => {
+                win.setFullScreen(!win.isFullScreen());
               },
-            ],
+            },
+          ],
     },
     {
-      label: 'Help',
+      label: '帮助',
       submenu: [
         {
-          label: 'Learn More',
+          label: '学习更多',
           click() {
             shell.openExternal('https://electronjs.org');
           },
         },
         {
-          label: 'Documentation',
+          label: 'electron 文档',
           click() {
             shell.openExternal(
               'https://github.com/electron/electron/tree/main/docs#readme'
@@ -226,13 +227,13 @@ function buildDefaultTemplate() {
           },
         },
         {
-          label: 'Community Discussions',
+          label: '交流社区',
           click() {
             shell.openExternal('https://www.electronjs.org/community');
           },
         },
         {
-          label: 'Search Issues',
+          label: '搜索 issues',
           click() {
             shell.openExternal('https://github.com/electron/electron/issues');
           },
@@ -250,7 +251,7 @@ function setupDevelopmentEnvironment(): void {
 
     Menu.buildFromTemplate([
       {
-        label: 'Inspect element',
+        label: '检查元素',
         click: () => {
           win.webContents.inspectElement(x, y);
         },
@@ -264,30 +265,10 @@ const template =
     ? buildDarwinTemplate()
     : buildDefaultTemplate();
 
-// const template1 = [
-//   {
-//     label: '开发者',
-//     submenu: [
-//       {
-//         label: '打开开发者工具',
-//         click: () => {
-//           const { webContents } = win;
-//           isOpenOrCloseDevtools(webContents);
-//         },
-//         // 添加快捷键
-//         accelerator: 'CmdOrCtrl + shift + i',
-//       },
-//     ],
-//   },
-// ];
-
 export default function createMenu(windows: BrowserWindow) {
   win = windows;
 
-  if (
-    process.env.NODE_ENV === 'development' ||
-    process.env.DEBUG_PROD === 'true'
-  ) {
+  if (isDebug) {
     setupDevelopmentEnvironment();
   }
 

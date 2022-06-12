@@ -9,12 +9,12 @@ exports.default = async function notarizeMacos(context) {
   }
 
   if (process.env.CI !== 'true') {
-    console.warn('跳过公证步骤。打包未在 CI 中运行');
+    console.warn('跳过签名步骤。打包未在 CI 中运行');
     return;
   }
 
   if (!('APPLE_ID' in process.env && 'APPLE_ID_PASS' in process.env)) {
-    console.warn('跳过公证步骤。必须设置 APPLE_ID 和 APPLE_ID_PASS 环境变量');
+    console.warn('跳过签名步骤。必须设置 APPLE_ID 和 APPLE_ID_PASS 环境变量');
     return;
   }
 

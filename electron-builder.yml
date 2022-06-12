@@ -13,8 +13,8 @@ productName: 图片压缩
 copyright: Copyright © 2022 miniOcean404
 
 appId: com.image-compress.app
-# "store" | "normal"| "maximum" store可以显着减少构建时间。maximum不会导致明显的尺寸差异，但会增加构建时间
-compression: store
+# "store" | "normal"| "maximum" store可以显着减少构建时间。
+compression: maximum
 # 除了package.json中dependencies外，另外需要打包的文件添加到此处
 files:
   - dist
