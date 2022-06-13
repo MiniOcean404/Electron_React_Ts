@@ -146,6 +146,11 @@ xmp {
   unicode-range: U+1F000-1F644, U+203C-3299;
 }
 
+@font-face {
+  font-family: Ping fang SC Medium;
+  src: url('../../../assets/font/pingfangsc-medium.otf');
+}
+
 // 适合标题的衬线字体
 .font-serif {
   font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -160,7 +165,7 @@ xmp {
 html,
 body {
   // electron 无边框窗口拖拽
-  -webkit-app-region: drag;
+  --webkit-app-region: drag;
   user-select: none;
 
   height: 100%;
@@ -169,9 +174,9 @@ body {
   // font-family 必须最后指定
   font: 16px/1.5;
 
-  // 张旭鑫推荐 字体 系统字体：system-ui(chrome、safari) —apple-system(firfox)  兜底字体：Segoe UI(window) Arial(旧windows) sans-serif (旧Android) Segoe UI(Android字体) Helvetica(Mac Os iOS)
-  font-family: system-ui, —apple-system, Segoe UI, Rototo, Emoji, Helvetica,
-    Arial, sans-serif;
+  // 张旭鑫推荐 字体 系统字体：system-ui(chrome、safari) —apple-system(firefox)  兜底字体：Segoe UI(window) Arial(旧windows) sans-serif (旧Android) Segoe UI(Android字体) Helvetica(Mac Os iOS)
+  font-family: Ping fang SC Medium, system-ui, —apple-system, Segoe UI, Rototo,
+    Emoji, Helvetica, Arial, sans-serif;
 
   -webkit-font-smoothing: antialiased; // 取消字体抗锯齿
   -moz-osx-font-smoothing: grayscale;

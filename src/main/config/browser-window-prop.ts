@@ -38,7 +38,7 @@ const webPreferences: WebPreferences = {
   // enableBlinkFeatures: // string(可选) - 以逗号分隔的需要启用的特性列表，譬如CSSVariables,KeyboardEventKey 在 RuntimeEnabledFeatures.json5文件中查看被支持的所有特性.
   // disableBlinkFeatures  // string (可选) - 以 ,分隔的禁用特性列表, 如 CSSVariables,KeyboardEventKey. 在RuntimeEnabledFeatures.json5 文件中查看被支持的所有特性.
 
-  // 为font-family设置默认字体。
+  // 为font-family用于设置font-family的默认字体。
   defaultFontFamily: {
     standard: 'Times New Roman', //  string (可选) - 默认值为 Times New Roman
     serif: 'Times New Roman', //  string (可选) - 默认值为 Times New Roman

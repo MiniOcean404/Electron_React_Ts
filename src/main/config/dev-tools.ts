@@ -1,15 +1,10 @@
-// import installer from 'electron-devtools-installer';
+import installer, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 
-export default async () => {
-  // eslint-disable-next-line global-require
-  const installer = require('electron-devtools-installer');
+export default () => {
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-  const extensions = ['REACT_DEVELOPER_TOOLS'];
+  const extensions = [REACT_DEVELOPER_TOOLS];
 
-  return installer
-    .default(
-      extensions.map((name) => installer[name]),
-      forceDownload
-    )
-    .catch(console.log);
+  installer(extensions, { forceDownload }).catch((err) => {
+    console.log(`扩展安装错误: ${err}`);
+  });
 };

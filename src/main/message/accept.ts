@@ -14,7 +14,6 @@ export default () => {
   });
 
   ipcMain.on('ipc-example', async (event, arg) => {
-    console.log(1);
     const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
     console.log(msgTemplate(arg));
     event.reply('ipc-example', msgTemplate('pong'));

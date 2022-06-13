@@ -1,9 +1,8 @@
 import { iconPath } from '@/constant/icon';
-import { isOpenOrCloseDevtools } from '@/main/utils/devtool';
 import { app, BrowserWindow, Menu, nativeImage, Tray } from 'electron';
 
 export default (win: BrowserWindow) => {
-  const icon = nativeImage.createFromPath(iconPath('icon.png'));
+  const icon = nativeImage.createFromPath(iconPath('icons/16x16.png'));
   const tray = new Tray(icon);
 
   // 鼠标移到托盘中应用程序的图标上时，显示的文本
@@ -20,7 +19,7 @@ export default (win: BrowserWindow) => {
     const menuConfig = Menu.buildFromTemplate([
       {
         label: '打开开发者工具',
-        click: () => isOpenOrCloseDevtools(win.webContents),
+        click: () => win.webContents.toggleDevTools(),
       },
       {
         label: '退出',

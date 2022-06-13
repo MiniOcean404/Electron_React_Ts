@@ -1,4 +1,3 @@
-import { isOpenOrCloseDevtools } from '@/main/utils/devtool';
 import { BrowserWindow, globalShortcut } from 'electron';
 
 export function regGlobalShortcut(win: BrowserWindow) {
@@ -8,7 +7,7 @@ export function regGlobalShortcut(win: BrowserWindow) {
 
   globalShortcut.register('F12', () => {
     const { webContents } = win;
-    isOpenOrCloseDevtools(webContents);
+    webContents.toggleDevTools();
   });
 }
 

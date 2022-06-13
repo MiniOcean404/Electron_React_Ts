@@ -15,8 +15,6 @@ app
 // 在macOS上，在应用程序中重新创建一个窗口是常见的
 // 单击dock图标，没有打开其他窗口。
 app.on('activate', async () => {
-  // if (mainWindow === null) createWindow();
-
   if (BrowserWindow.getAllWindows().length === 0) await createWindow();
 });
 
