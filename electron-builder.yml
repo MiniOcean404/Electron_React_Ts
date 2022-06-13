@@ -114,17 +114,17 @@ mac:
       arch:
         - arm64
         - x64
-    - dmg
-    - mas
-    - mas-dev
-    - pkg
-    - 7z
-    - zip
-    - tar.xz
-    - tar.lz
-    - tar.gz
-    - tar.bz2
-    - dir
+    - target: dmg
+    - target: mas
+    - target: mas-dev
+    - target: pkg
+    - target: 7z
+    - target: zip
+    - target: tar.xz
+    - target: tar.lz
+    - target: tar.gz
+    - target: tar.bz2
+    - target: dir
   #identity:  # 签名时使用的证书名称
   icon: assets/icons/icon.icns
   entitlements: assets/entitlements.mac.plist # 用于签署应用程序的权利文件的路径。build/entitlements.mac.plist如果存在将使用
@@ -134,7 +134,7 @@ mac:
   # minimumSystemVersion # 运行应用程序所需的最低 macOS 版本。
   hardenedRuntime: true # 您的应用程序是否必须使用强化运行时进行签名。
   gatekeeperAssess: false # 是否让 electron-osx-sign 验证签名
-  provisioningProfile: electron-builder/comalibabaslobs.provisionprofile # 签名时使用的配置文件的路径，绝对或相对于应用程序根目录
+  # provisioningProfile: electron-builder/comalibabaslobs.provisionprofile # 签名时使用的配置文件的路径，绝对或相对于应用程序根目录
 
 dmg:
   artifactName: image-compress.dmg
