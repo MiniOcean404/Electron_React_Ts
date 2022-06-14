@@ -2,6 +2,7 @@ import { iconPath } from '@/constant/icon';
 import { app, BrowserWindow, Menu, nativeImage, Tray } from 'electron';
 
 export default (win: BrowserWindow) => {
+  // Mac 只支持 16*16 大小
   const icon = nativeImage.createFromPath(iconPath('icons/16x16.png'));
   const tray = new Tray(icon);
 

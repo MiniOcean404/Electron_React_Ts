@@ -87,7 +87,7 @@ const browserWindowProp: BrowserWindowConstructorOptions = {
   maximizable: true, // 窗口是否可最大化 默认为true Linux上未实现
   closable: true, // 窗口是否可关闭 默认为true Linux上未实现
 
-  icon: iconPath('icon.png'), // 应用运行时的标题栏图标及任务栏图标,默认使用可执行文件的图标.
+  icon: iconPath('icon.png'), // 应用运行时的标题栏图标及 Windows 任务栏图标,默认使用可执行文件的图标.
   alwaysOnTop: false, // 窗口是否永远在别的窗口的上面。 默认值为 false.
   center: true, // 是否居中
   // x:0, 相对于屏幕左侧偏移量
