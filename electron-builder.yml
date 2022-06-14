@@ -125,15 +125,16 @@ mac:
     - target: tar.gz
     - target: tar.bz2
     - target: dir
-  #identity:  # 签名时使用的证书名称
   icon: assets/icons/icon.icns
-  entitlements: assets/entitlements.mac.plist # 用于签署应用程序的权利文件的路径。build/entitlements.mac.plist如果存在将使用
-  entitlementsInherit: assets/entitlements.mac.plist # 继承用于签署框架和分发包的安全设置的子权利的路径
   darkModeSupport: true # 是否支持暗模式。
-  type: distribution # distribution | development | undefined 是否签署应用程序以进行开发或分发
   # minimumSystemVersion # 运行应用程序所需的最低 macOS 版本。
-  hardenedRuntime: true # 您的应用程序是否必须使用强化运行时进行签名。
   gatekeeperAssess: false # 是否让 electron-osx-sign 验证签名
+  #identity:  # 签名时使用的证书名称
+  # 临时注释 entitlements、entitlementsInherit ：打包 Mac 包会报错 、 这是 Mac 进行签名相关
+  # entitlements: assets/entitlements.mac.plist # 用于签署应用程序的权利文件的路径。build/entitlements.mac.plist如果存在将使用
+  # entitlementsInherit: assets/entitlements.mac.plist # 继承用于签署框架和分发包的安全设置的子权利的路径
+  # type: distribution # distribution | development | undefined 是否签署应用程序以进行开发或分发
+  # hardenedRuntime: true # 您的应用程序是否必须使用强化运行时进行签名。
   # provisioningProfile: electron-builder/comalibabaslobs.provisionprofile # 签名时使用的配置文件的路径，绝对或相对于应用程序根目录
 
 dmg:
