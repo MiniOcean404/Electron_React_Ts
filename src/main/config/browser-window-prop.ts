@@ -16,6 +16,7 @@ const webPreferences: WebPreferences = {
   sandbox: false, // 如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 nodeIntegration 的选项不同，且预加载脚本的 API 也有限制.
   // session:  // 默认 session 设置页面的 session 而不是直接忽略 Session 对象, 也可用 partition 选项来代替，它接受一个 partition 字符串. 同时设置了session 和 partition时, session 的优先级更高. 默认使用默认的 session.
   // partition  // 通过 session 的 partition 字符串来设置界面session. 如果 partition 以 persist:开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个partition. 如果没有 persist: 前缀, 页面将使用 in-memory session. 通过分配相同的 partition, 多个页可以共享同一会话。 默认使用默认的 session.
+  // 设置后不还原 清除缓存 C:\Users\ta\AppData\Roaming
   zoomFactor: 1.0, // 页面内容放大倍数, 3.0 表示 300%。 默认值为 1.0.
   javascript: true, // 是否启用 JavaScript 支持。 默认值为 true
   // electron 12 之后 需要设置其为 false 才能在网页通过 window.require('electron')集成 Node 否则通过预加载脚本集成
