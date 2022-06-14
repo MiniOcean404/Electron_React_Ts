@@ -1,6 +1,6 @@
+import { iconPath } from '@/constant/icon';
 import { app } from 'electron';
 import path from 'path';
-import { iconPath } from '@/constant/icon';
 import BrowserWindowConstructorOptions = Electron.BrowserWindowConstructorOptions;
 import WebPreferences = Electron.WebPreferences;
 
@@ -38,7 +38,7 @@ const webPreferences: WebPreferences = {
   // enableBlinkFeatures: // string(可选) - 以逗号分隔的需要启用的特性列表，譬如CSSVariables,KeyboardEventKey 在 RuntimeEnabledFeatures.json5文件中查看被支持的所有特性.
   // disableBlinkFeatures  // string (可选) - 以 ,分隔的禁用特性列表, 如 CSSVariables,KeyboardEventKey. 在RuntimeEnabledFeatures.json5 文件中查看被支持的所有特性.
 
-  // 为font-family用于设置font-family的默认字体。
+  // 为font-family用于设置 font-family 的默认字体。
   defaultFontFamily: {
     standard: 'Times New Roman', //  string (可选) - 默认值为 Times New Roman
     serif: 'Times New Roman', //  string (可选) - 默认值为 Times New Roman
@@ -111,6 +111,7 @@ const browserWindowProp: BrowserWindowConstructorOptions = {
   hasShadow: true, // 窗口是否有阴影. 默认值为 true
   opacity: 1, // 设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。 目前仅支持Windows 和 macos
   visualEffectState: 'followWindow', // followWindow 当窗口处于激活状态时，后台应自动显示为激活状态，当窗口处于非激活状态时，后台应自动显示为非激活状态 active - 后台应一直显示为激活状态。 inactive - 后台应一直显示为非激活状态。
+  // hiddenInset 设置 Mac 窗口只有左上角的最大化、关闭、缩小
   titleBarStyle: 'hiddenInset', // default - 分别返回 macOS 或者 Windows 的标准标题栏  hiddenInset - 隐藏标题栏, 显示小的控制按钮在窗口边缘 ,hidden - 在一个隐藏的标题栏和一个全尺寸大小的内容窗口中取得结果。 在 macOS 内, 窗口将一直拥有位于左上的标准窗口控制器 (“traffic lights”)。 在 Windows上，当与 titleBarOverlay: true 合并时，它将激活窗口控件叠加(详情请参阅 titleBarOverlay)，否则将不会显示窗口控件。
   thickFrame: true, // 对 Windows 上的无框窗口使用WS_THICKFRAME 样式，会增加标准窗口框架。 设置为 false 时将移除窗口的阴影和动画.
   darkTheme: false, //  强制窗口使用深色主题，只在部分GTK+3桌面环境下有效。 默认值为 false.
