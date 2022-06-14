@@ -76,6 +76,8 @@ win:
         - ia32
         - arm64
     - target: msi
+      # 便携式
+    - target: portable
 
 nsis:
   oneClick: false # 是否一键安装
@@ -204,3 +206,8 @@ publish:
   owner: electron-react-boilerplate
   repo: electron-react-boilerplate
   # url: ''
+
+# 设置 electron 源
+# https://www.electron.build/configuration/configuration.html#configuration
+electronDownload:
+  mirror: http://npm.taobao.org/mirrors/electron/

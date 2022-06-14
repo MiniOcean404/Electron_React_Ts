@@ -1,7 +1,11 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Hello = () => {
-  return <div />;
+  return (
+    <>
+      <div>测试</div>
+    </>
+  );
 };
 
 export default function App() {
