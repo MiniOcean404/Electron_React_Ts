@@ -135,7 +135,7 @@ const browserWindowProp: BrowserWindowConstructorOptions = {
   darkTheme: false, //  强制窗口使用深色主题，只在部分GTK+3桌面环境下有效。 默认值为 false.
 
   // Mac 独有配置
-  trafficLightPosition: { x: 100, y: 200 }, //  Point 对象 设置 Mac (交通灯)控制按钮在无边框窗口中的位置。
+  trafficLightPosition: { x: 10, y: 10 }, //  Point 对象 设置 Mac (交通灯)控制按钮在无边框窗口中的位置。
   roundedCorners: true, // 无框窗口是否应该在 macOS 上 圆角。 默认值为 true。
   fullscreenable: true, //  窗口是否可以进入全屏状态. 在 macOS上, 最大化/缩放按钮是否可用 默认值为 true。
   simpleFullscreen: false, // 在 macOS 上使用 pre-Lion 全屏。 默认值为 false.
