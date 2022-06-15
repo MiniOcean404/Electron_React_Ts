@@ -142,8 +142,8 @@ const browserWindowProp: BrowserWindowConstructorOptions = {
   acceptFirstMouse: false, // 单击非活动窗口是否同时触发点击进入里面的网页内容 在 macOS 默认 false。 此选项在其他平台上不可配置。
   enableLargerThanScreen: false, // 是否允许改变窗口的大小使之大于屏幕的尺寸. 仅适用于 macOS，因为其它操作系统默认允许 大于屏幕的窗口。 默认值为 false.
   vibrancy: 'window', //  窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. 可选值为 appearance-based, light, dark, titlebar, selection, menu, popover, sidebar, medium-light, ultra-dark, header, sheet, window, hud, fullscreen-ui, tooltip, content, under-window 或 under-page。 请注意： appearance-based, light, dark, medium-light, and ultra-dark 已被弃用，并将在即将推出的 macOS Catalina (10.15版本) 中被移除。
-  zoomToPageWidth: false, // 控制 macOS 上，当选择性单击工具栏上的绿色stoplight按钮或单击 Window > Zoom menu item时的行为。 如果为 true, 窗口将放大到网页的本身宽度, false 将使其缩放到屏幕的宽度。 这也会影响直接调用 maximize() 时的行为。
   tabbingIdentifier: '图片压缩', // 选项组卡的名称，在macOS 10.12+上可使窗口在原生选项卡中打开. 具有相同标识符的窗口将被组合在一起。 这还会在窗口的标签栏中添加一个原生的新选项卡按钮, 并允许 app 和窗口接收 new-window-for-tab 事件。
+  zoomToPageWidth: false, // 控制 macOS 上，当选择性单击工具栏上的绿色stoplight按钮或单击 Window > Zoom menu item时的行为。 如果为 true, 窗口将放大到网页的本身宽度, false 将使其缩放到屏幕的宽度。 这也会影响直接调用 maximize() 时的行为。
 
   webPreferences,
 };
