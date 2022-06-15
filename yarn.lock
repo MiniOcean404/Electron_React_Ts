@@ -1249,6 +1249,11 @@
   resolved "https://registry.npmmirror.com/@pixi/ticker/-/ticker-6.4.2.tgz#5e84fcd9c76240e9c141f268b780de19b63cf231"
   integrity sha512-OM2U0qLiU2Z+qami7DRNkBJnx20ElQO/5mJNsoHQRH6k/po0nXlux8jcCXhh5DE9lds4RdUFAwTL4RmLT1clDw==
 
+"@pixi/unsafe-eval@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.npmmirror.com/@pixi/unsafe-eval/-/unsafe-eval-6.4.2.tgz#452d2286eb2c57cd3145a4cac006ec0bff305cc1"
+  integrity sha512-8FeSnIUxTw7kDCa2ldq8wpBIV8q/fIWASRmWg3I922YE02vG2KSZY5Eiog8JND90vlFkoy9/pQfuIXCkuSWFGg==
+
 "@pixi/utils@6.4.2":
   version "6.4.2"
   resolved "https://registry.npmmirror.com/@pixi/utils/-/utils-6.4.2.tgz#77c5bac2ba26094ac0308327a5b6685d3287f649"
