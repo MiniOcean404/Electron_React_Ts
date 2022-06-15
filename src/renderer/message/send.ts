@@ -1,7 +1,8 @@
-const { ipcRenderer } = window.require('electron');
+const ipc =
+  window.electron.ipcRenderer || window.require('electron').ipcRenderer;
 
 export function sendMain() {
-  ipcRenderer.send('key', '我是渲染进程的消息');
+  ipc.send('key', '我是渲染进程的消息');
 }
 
 // 通过 channel 发送消息到带有 webContentsId 的窗口.
@@ -11,9 +12,19 @@ export function sendRenderToRender(
   channel: string,
   ...arg: unknown[]
 ) {
-  ipcRenderer.sendTo(webContentsId, channel, ...arg);
+  ipc.sendTo(webContentsId, channel, ...arg);
 }
 
 export function sendCompressDate(data: object) {
-  ipcRenderer.send('compress-data', data);
+  ipc.send('compress-data', data);
 }
+
+export const ipcTest = () => {
+  // calling IPC exposed from preload script
+  ipc.once('ipc-example', (arg) => {
+    // eslint-disable-next-line no-console
+    console.log(arg);
+  });
+
+  ipc.send('ipc-example', ['Test Data']);
+};
