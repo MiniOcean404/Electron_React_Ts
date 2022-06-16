@@ -1,7 +1,9 @@
-import { mouseMove } from '@/renderer/view/pixi/create-sprite';
+import setMouseFloatIcon from '@/renderer/view/pixi/ability/mouse-float-icon';
+import { mouseMove } from '@/renderer/view/pixi/sprite/mouse-move';
 import { Application } from 'pixi.js';
 import { LegacyRef, useLayoutEffect, useRef } from 'react';
-import styles from './index.scss';
+
+import './index.scss';
 
 const Pixi2D = () => {
   const dom: LegacyRef<HTMLDivElement> = useRef(null);
@@ -17,6 +19,7 @@ const Pixi2D = () => {
       dom.current?.appendChild(app.view);
     }
 
+    setMouseFloatIcon(app);
     mouseMove(app);
 
     // createText(app);
@@ -26,7 +29,7 @@ const Pixi2D = () => {
 
   return (
     <>
-      <div className={styles?.container} ref={dom} />
+      <div className="container" ref={dom} />
     </>
   );
 };

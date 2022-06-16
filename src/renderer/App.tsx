@@ -1,9 +1,7 @@
-import { lazy } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
+import Home from '@/renderer/view/home/index';
 import Pixi2D from '@/renderer/view/pixi';
-
-const Home = lazy(() => import('@/renderer/view/home/index'));
 
 export default function App() {
   return (

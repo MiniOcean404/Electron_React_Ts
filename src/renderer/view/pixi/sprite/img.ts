@@ -1,48 +1,6 @@
-import { Dict } from '@/typing/pixi';
-import {
-  Application,
-  Container,
-  filters,
-  Graphics,
-  Loader,
-  LoaderResource,
-  Rectangle,
-  SCALE_MODES,
-  Sprite,
-  Text,
-  TextStyle,
-} from 'pixi.js';
+import { Application, Container, Graphics, Rectangle, Sprite } from 'pixi.js';
 
 // eslint-disable-next-line import/prefer-default-export
-export function createText(app: Application) {
-  // 创建一个文本样式
-  const skewStyle = new TextStyle({
-    fontFamily: 'Arial',
-    dropShadow: true,
-    dropShadowAlpha: 0.8,
-    dropShadowAngle: 2.1,
-    dropShadowBlur: 4,
-    dropShadowColor: '0x111111',
-    dropShadowDistance: 10,
-    fill: ['#ffffff'],
-    stroke: '#004620',
-    fontSize: 60,
-    fontWeight: 'lighter',
-    lineJoin: 'round',
-    strokeThickness: 12,
-  });
-  // 创建一个文本类型
-  const skewText = new Text('Hello PixiJS', skewStyle);
-  // 将文本倾斜
-  skewText.skew.set(0.1, -0.1);
-  // 定义文本在舞台（app）中的位置
-  skewText.x = 10;
-  skewText.y = 100;
-
-  // 将文本添加到舞台（app）中
-  app.stage.addChild(skewText);
-}
-
 export function createImg(app: Application) {
   // 创建一个图像精灵
   const luFei = Sprite.from(
@@ -135,61 +93,4 @@ export function createImg(app: Application) {
   });
 
   return { luFei, container };
-}
-
-export function mouseMove(app: Application) {
-  const loader = Loader.shared;
-
-  loader.reset();
-  // Inner radius of the circle
-  const radius = 100;
-
-  // The blur amount
-  const blurSize = 32;
-
-  const setup = (_: Loader, resources: Dict<LoaderResource>) => {
-    const background = new Sprite(resources.bg.texture);
-    background.width = app.screen.width;
-    background.height = app.screen.height;
-
-    const circle = new Graphics()
-      .beginFill(0xff0000)
-      .drawCircle(radius + blurSize, radius + blurSize, radius)
-      .endFill();
-    circle.filters = [new filters.BlurFilter(blurSize)];
-
-    const bounds = new Rectangle(
-      0,
-      0,
-      (radius + blurSize) * 2,
-      (radius + blurSize) * 2
-    );
-
-    const texture = app.renderer.generateTexture(circle, {
-      scaleMode: SCALE_MODES.NEAREST,
-      resolution: 1,
-      region: bounds,
-    });
-    const focus = new Sprite(texture);
-
-    background.mask = focus;
-    app.stage.interactive = true;
-
-    function pointerMove(event: any) {
-      focus.position.x = event.data.global.x - focus.width / 2;
-      focus.position.y = event.data.global.y - focus.height / 2;
-    }
-
-    app.stage.on('mousemove', pointerMove);
-
-    app.stage.addChild(background);
-    app.stage.addChild(focus);
-  };
-
-  loader
-    .add(
-      'bg',
-      'http://tva3.sinaimg.cn/large/006APoFYly8h2uf1v77qxj305k05la9x.jpg'
-    )
-    .load(setup);
 }
