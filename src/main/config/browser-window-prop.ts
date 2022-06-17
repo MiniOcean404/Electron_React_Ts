@@ -130,7 +130,7 @@ const browserWindowProp: BrowserWindowConstructorOptions = {
   // color String (可选) Windows - 放大缩小关闭控件的颜色背景颜色 默认是系统颜色。
   // symbolColor String (可选) Windows - 放大缩小关闭控件的颜色
   // height Integer (可选) macOS Windows - 标题栏和 Window Controls Overlay，以像素为单位。 默认值为系统高度 (放大缩小关闭控件的高度)
-  titleBarOverlay: { color: '#eeeeee', symbolColor: '#000000' },
+  titleBarOverlay: { color: '#eeeeee', symbolColor: '#000000', height: 5 },
   thickFrame: true, // 对 Windows 上的无框窗口使用WS_THICKFRAME 样式，会增加标准窗口框架。 设置为 false 时将移除窗口的阴影和动画.
   darkTheme: false, //  强制窗口使用深色主题，只在部分GTK+3桌面环境下有效。 默认值为 false.
 
